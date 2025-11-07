@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="style.css">
 </head>
 <body>
-    <h1> góticas</h1>
+    <div id="pai">
+     <fieldset id="divisao_procurador_personagem">
+     <h1>Procurador de personagem</h1>
+     <div id="botao_input_personagem">
+        <label>Procurador de personagem:</label>
+        <input id="procurador">
+        <button onclick="carregaPersonagem()">Procurar</button>
+     </div>
+     <fieldset id="respostas_personagem">
+        <h1>Dados</h1>
+        <p id="nome_personagens"></p>
+        <p id="vida"></p>
+        <p id="suco"></p>
+        <p id="ataque"></p>
+        <p id="defesa"></p>
+        <p id="velocidade"></p>
+        <p id="sorte"></p>
+        <p id="aniversario"></p>
+        <p id="nome_habilidades"></p>
+        <p id="nome_comidas"></p>
+        <p id="nome_armamento"></p>
+
+     </fieldset>
+     </fieldset>
+    </div>
 </body>
 <script src="server.js"></script>
 <script src="script.js"></script>
