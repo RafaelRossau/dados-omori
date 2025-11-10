@@ -1,6 +1,7 @@
 function carregaPersonagem(){
   let id = document.getElementById("procurador").value;
   let url = `http://localhost:3000/Personagens`;
+  let url2 = `http://localhost:3000/Habilidades`;
   let nome_personagem = document.getElementById("nome_personagens");
   let vida = document.getElementById("vida");
   let suco = document.getElementById("suco");
@@ -9,6 +10,7 @@ function carregaPersonagem(){
   let velocidade = document.getElementById("velocidade");
   let sorte = document.getElementById("sorte");
   let aniversario = document.getElementById("aniversario");
+  let personagensarr = `http://localhost:3000/`;
   
   let ID_habilidades = document.getElementById("ID_habilidades");
   let nome_habilidades = document.getElementById("nome_habilidades");
@@ -33,28 +35,43 @@ function carregaPersonagem(){
   let sorte_extra = document.getElementById("sorte_extra");
   let chance_hit_extra = document.getElementById("chance_hit_extra");
 
+    fetch(url2)
+    .then((response) => {
+      return response.json();
+    })
+
+    .then((Habilidades) => {
+      
+  console.log(Habilidades)
+  let FK_nome_habilidades = Habilidades[id].nome
+  nome_habilidades.innerHTML = FK_nome_habilidades
+  
+})
+
+  
   fetch(url)
     .then((response) => {
       return response.json();
     })
 
-    .then((personagem) => {
-      for(let i = 0;i < id.value; i++){
+    .then((Personagens) => {
+      
+
+  console.log(Personagens)
+  nome_personagem.innerHTML = Personagens[id].nome
+  vida.innerHTML = Personagens[id].vida
+  suco.innerHTML = Personagens[id].suco
+  ataque.innerHTML = Personagens[id].ataque
+  defesa.innerHTML = Personagens[id].defesa
+  velocidade.innerHTML = Personagens[id].velocidade
+  sorte.innerHTML = Personagens[id].sorte
+  aniversario.innerHTML =Personagens[id].aniversario
+      
   
-  nome_personagem.innerHTML = personagem.Personagens[i].nome
-  vida.innerHTML = personagem.Personagens[i].vida
-  suco.innerHTML = personagem.Personagens[i].suco
-  ataque.innerHTML = personagem.Personagens[i].ataque
-  defesa.innerHTML = personagem.Personagens[i].defesa
-  velocidade.innerHTML = personagem.Personagens[i].velocidade
-  sorte.innerHTML = personagem.Personagens[i].sorte
-  aniversario.innerHTML = personagem.Personagens[i].aniversario
-  nome_habilidades.innerHTML = personagem.Habilidades[i].nome
-  nome_comidas.innerHTML = personagem.Habilidades[i].nome
-  nome_armamento.innerHTML = personagem.Habilidades[i].nome
-    }
+    
 })
+
     .catch((error) => {
-      console.log("erro no carregamento do pokemon");
+      console.log("erro no carregamento do personagem");
     });
 }
