@@ -2,6 +2,8 @@ function carregaPersonagem(){
   let id = document.getElementById("procurador").value;
   let url = `http://localhost:3000/Personagens`;
   let url2 = `http://localhost:3000/Habilidades`;
+  let url3 = `http://localhost:3000/Comidas`;
+  let url4 = `http://localhost:3000/Armamento`;
   let nome_personagem = document.getElementById("nome_personagens");
   let vida = document.getElementById("vida");
   let suco = document.getElementById("suco");
@@ -35,7 +37,33 @@ function carregaPersonagem(){
   let sorte_extra = document.getElementById("sorte_extra");
   let chance_hit_extra = document.getElementById("chance_hit_extra");
 
-    fetch(url2)
+    fetch(url4)
+    .then((response) => {
+      return response.json();
+    })
+
+    .then((Armamento) => {
+      
+  console.log(Armamento)
+  let FK_nome_armamento= "Armamento: " + Armamento[id].nome
+  nome_armamento.innerHTML = FK_nome_armamento
+  
+})
+  
+  fetch(url3)
+    .then((response) => {
+      return response.json();
+    })
+
+    .then((Comidas) => {
+      
+  console.log(Comidas)
+  let FK_nome_comidas = "Comida: " + Comidas[id].nome
+  nome_comidas.innerHTML = FK_nome_comidas
+  
+})
+  
+  fetch(url2)
     .then((response) => {
       return response.json();
     })
@@ -43,7 +71,7 @@ function carregaPersonagem(){
     .then((Habilidades) => {
       
   console.log(Habilidades)
-  let FK_nome_habilidades = Habilidades[id].nome
+  let FK_nome_habilidades = "Habilidade: " + Habilidades[id].nome
   nome_habilidades.innerHTML = FK_nome_habilidades
   
 })
@@ -58,14 +86,14 @@ function carregaPersonagem(){
       
 
   console.log(Personagens)
-  nome_personagem.innerHTML = Personagens[id].nome
-  vida.innerHTML = Personagens[id].vida
-  suco.innerHTML = Personagens[id].suco
-  ataque.innerHTML = Personagens[id].ataque
-  defesa.innerHTML = Personagens[id].defesa
-  velocidade.innerHTML = Personagens[id].velocidade
-  sorte.innerHTML = Personagens[id].sorte
-  aniversario.innerHTML =Personagens[id].aniversario
+  nome_personagem.innerHTML = "Nome: " + Personagens[id].nome
+  vida.innerHTML = "Vida: " + Personagens[id].vida
+  suco.innerHTML = "Suco: " + Personagens[id].suco
+  ataque.innerHTML = "Ataque:" + Personagens[id].ataque
+  defesa.innerHTML = "Defesa: " + Personagens[id].defesa
+  velocidade.innerHTML = "Velocidade: " + Personagens[id].velocidade
+  sorte.innerHTML = "Sorte: " + Personagens[id].sorte
+  aniversario.innerHTML ="Aniversário: " + Personagens[id].aniversario
       
   
     
