@@ -103,3 +103,29 @@ function carregaPersonagem(){
       console.log("erro no carregamento do personagem");
     });
 }
+
+function criarPersonagem(){
+  const nomeadicao = document.getElementById("nomeadicao").value
+  const vidaadicao = document.getElementById("vidaadicao").value
+  const sucoadicao = document.getElementById("nomeadicao").value
+  const ataqueadicao = document.getElementById("ataqueadicao").value
+  const defesaadicao = document.getElementById("defesaadicao").value
+  const velocidadeadicao = document.getElementById("velocidadeadicao").value
+  const sorteadicao = document.getElementById("sorteadicao").value
+  const aniversarioadicao = document.getElementById("aniversarioadicao").value
+  const habilidadesadicao = document.getElementById("habilidadesadicao").value
+  const comidasadicao = document.getElementById("comidasadicao").value
+  const armamentoadicao = document.getElementById("armamentoadicao").value
+
+   fetch("/Personagens", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({nomeadicao, vidaadicao, sucoadicao, ataqueadicao, defesaadicao, velocidadeadicao, sorteadicao, aniversarioadicao, habilidadesadicao, comidasadicao, armamentoadicao }), // manda o objeto js para o banco como json
+  });
+
+  
+  carregaPersonagem(); // atualiza lista
+};
+
+// Carrega ao abrir a página
+carregaPersonagem();
