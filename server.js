@@ -48,6 +48,13 @@ app.get("/Armamento", (req, res) => {
     res.json(results); // Envia o resultado como JSON para o front
   });
 });
+
+app.get("/PersonagensTESTE", (req, res) => {
+  db.query("SELECT * FROM PersonagensTESTE", (err, results) => {
+    if (err) throw err; // Se der erro na query, interrompe
+    res.json(results); // Envia o resultado como JSON para o front
+  });
+});
 // POST /usuarios → insere um novo usuário no banco
 app.post("/Personagens", (req, res) => {
   const {nomeadicao, vidaadicao, sucoadicao, ataqueadicao, defesaadicao, velocidadeadicao, sorteadicao, aniversarioadicao, habilidadesadicao, comidasadicao, armamentoadicao} = req.body; // Extrai os dados enviados pelo front
@@ -65,4 +72,4 @@ app.post("/Personagens", (req, res) => {
 // Inicia o servidor na porta 3000
 app.listen(3000, () =>
   console.log("Servidor rodando em http://localhost:3000/")
-);
+)

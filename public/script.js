@@ -1,4 +1,10 @@
 function carregaPersonagem(){
+  let url5 = `http://localhost:3000/PersonagensTESTE`
+  let nomeTESTE = document.getElementById("nomeTESTE")
+  let aniversarioTESTE = document.getElementById("aniversarioTESTE")
+  let ataqueTESTE = document.getElementById("ataqueTESTE")
+  let defesaTESTE = document.getElementById("defesaTESTE")
+  
   let id = document.getElementById("procurador").value;
   let url = `http://localhost:3000/Personagens`;
   let url2 = `http://localhost:3000/Habilidades`;
@@ -37,95 +43,104 @@ function carregaPersonagem(){
   let sorte_extra = document.getElementById("sorte_extra");
   let chance_hit_extra = document.getElementById("chance_hit_extra");
 
-    fetch(url4)
+//     fetch(url4)
+//     .then((response) => {
+//       return response.json();
+//     })
+
+//     .then((Armamento) => {
+      
+//   console.log(Armamento)
+//   let FK_nome_armamento= "Armamento: " + Armamento[id].nome
+//   nome_armamento.innerHTML = FK_nome_armamento
+  
+// })
+  
+//   fetch(url3)
+//     .then((response) => {
+//       return response.json();
+//     })
+
+//     .then((Comidas) => {
+      
+//   console.log(Comidas)
+//   let FK_nome_comidas = "Comida: " + Comidas[id].nome
+//   nome_comidas.innerHTML = FK_nome_comidas
+  
+// })
+  
+//   fetch(url2)
+//     .then((response) => {
+//       return response.json();
+//     })
+
+//     .then((Habilidades) => {
+      
+//   console.log(Habilidades)
+//   let FK_nome_habilidades = "Habilidade: " + Habilidades[id].nome
+//   nome_habilidades.innerHTML = FK_nome_habilidades
+  
+// })
+fetch(url5)
     .then((response) => {
       return response.json();
-    })
+     })
 
-    .then((Armamento) => {
+    .then((PersonagensTESTE) => {
       
-  console.log(Armamento)
-  let FK_nome_armamento= "Armamento: " + Armamento[id].nome
-  nome_armamento.innerHTML = FK_nome_armamento
+  console.log(PersonagensTESTE)
+  nomeTESTE.innerHTML = PersonagensTESTE[id].nome
+  aniversarioTESTE.innerHTML = PersonagensTESTE[id].nascimento
+  ataqueTESTE.innerHTML = PersonagensTESTE[id].ataque
+  defesaTESTE.innerHTML =PersonagensTESTE[id].defesa
+ })
   
-})
   
-  fetch(url3)
-    .then((response) => {
-      return response.json();
-    })
+// fetch(url)
+//     .then((response) => {
+//       return response.json();
+//     })
 
-    .then((Comidas) => {
-      
-  console.log(Comidas)
-  let FK_nome_comidas = "Comida: " + Comidas[id].nome
-  nome_comidas.innerHTML = FK_nome_comidas
-  
-})
-  
-  fetch(url2)
-    .then((response) => {
-      return response.json();
-    })
-
-    .then((Habilidades) => {
-      
-  console.log(Habilidades)
-  let FK_nome_habilidades = "Habilidade: " + Habilidades[id].nome
-  nome_habilidades.innerHTML = FK_nome_habilidades
-  
-})
-
-  
-  fetch(url)
-    .then((response) => {
-      return response.json();
-    })
-
-    .then((Personagens) => {
+//     .then((Personagens) => {
       
 
-  console.log(Personagens)
-  nome_personagem.innerHTML = "Nome: " + Personagens[id].nome
-  vida.innerHTML = "Vida: " + Personagens[id].vida
-  suco.innerHTML = "Suco: " + Personagens[id].suco
-  ataque.innerHTML = "Ataque:" + Personagens[id].ataque
-  defesa.innerHTML = "Defesa: " + Personagens[id].defesa
-  velocidade.innerHTML = "Velocidade: " + Personagens[id].velocidade
-  sorte.innerHTML = "Sorte: " + Personagens[id].sorte
-  aniversario.innerHTML ="Aniversário: " + Personagens[id].aniversario
+//   console.log(Personagens)
+//   nome_personagem.innerHTML = "Nome: " + Personagens[id].nome
+//   vida.innerHTML = "Vida: " + Personagens[id].vida
+//   suco.innerHTML = "Suco: " + Personagens[id].suco
+//   ataque.innerHTML = "Ataque:" + Personagens[id].ataque
+//   defesa.innerHTML = "Defesa: " + Personagens[id].defesa
+//   velocidade.innerHTML = "Velocidade: " + Personagens[id].velocidade
+//   sorte.innerHTML = "Sorte: " + Personagens[id].sorte
+//   aniversario.innerHTML ="Aniversário: " + Personagens[id].aniversario
       
   
     
-})
+//})
 
     .catch((error) => {
       console.log("erro no carregamento do personagem");
     });
 }
 
-function criarPersonagem(){
-  const nomeadicao = document.getElementById("nomeadicao").value
-  const vidaadicao = document.getElementById("vidaadicao").value
-  const sucoadicao = document.getElementById("nomeadicao").value
-  const ataqueadicao = document.getElementById("ataqueadicao").value
-  const defesaadicao = document.getElementById("defesaadicao").value
-  const velocidadeadicao = document.getElementById("velocidadeadicao").value
-  const sorteadicao = document.getElementById("sorteadicao").value
-  const aniversarioadicao = document.getElementById("aniversarioadicao").value
-  const habilidadesadicao = document.getElementById("habilidadesadicao").value
-  const comidasadicao = document.getElementById("comidasadicao").value
-  const armamentoadicao = document.getElementById("armamentoadicao").value
+// function criarPersonagem(){
+//   const nomeadicao = document.getElementById("nomeadicao").value
+//   const vidaadicao = document.getElementById("vidaadicao").value
+//   const sucoadicao = document.getElementById("sucoadicao").value
+//   const ataqueadicao = document.getElementById("ataqueadicao").value
+//   const defesaadicao = document.getElementById("defesaadicao").value
+//   const velocidadeadicao = document.getElementById("velocidadeadicao").value
+//   const sorteadicao = document.getElementById("sorteadicao").value
+//   const aniversarioadicao = document.getElementById("aniversarioadicao").value
+//   const habilidadesadicao = document.getElementById("habilidadesadicao").value
+//   const comidasadicao = document.getElementById("comidasadicao").value
+//   const armamentoadicao = document.getElementById("armamentoadicao").value
 
-   fetch("/Personagens", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({nomeadicao, vidaadicao, sucoadicao, ataqueadicao, defesaadicao, velocidadeadicao, sorteadicao, aniversarioadicao, habilidadesadicao, comidasadicao, armamentoadicao }), // manda o objeto js para o banco como json
-  });
+//    fetch("/Personagens", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({nomeadicao, vidaadicao, sucoadicao, ataqueadicao, defesaadicao, velocidadeadicao, sorteadicao, aniversarioadicao, habilidadesadicao, comidasadicao, armamentoadicao }), // manda o objeto js para o banco como json
+//   });
 
-  
-  carregaPersonagem(); // atualiza lista
-};
+// };
 
-// Carrega ao abrir a página
-carregaPersonagem();
