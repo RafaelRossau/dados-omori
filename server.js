@@ -56,17 +56,28 @@ app.get("/PersonagensTESTE", (req, res) => {
   });
 });
 // POST /usuarios → insere um novo usuário no banco
-app.post("/Personagens", (req, res) => {
-  const {nomeadicao, vidaadicao, sucoadicao, ataqueadicao, defesaadicao, velocidadeadicao, sorteadicao, aniversarioadicao, habilidadesadicao, comidasadicao, armamentoadicao} = req.body; // Extrai os dados enviados pelo front
+// app.post("/Personagens", (req, res) => {
+//   const {nomeadicao, vidaadicao, sucoadicao, ataqueadicao, defesaadicao, velocidadeadicao, sorteadicao, aniversarioadicao, habilidadesadicao, comidasadicao, armamentoadicao} = req.body; // Extrai os dados enviados pelo front
+//   db.query(
+//     "INSERT INTO Personagens (ID_personagens, nome, vida, suco, ataque, defesa, velocidade, sorte, aniversario, FK_habilidades, FK_Comidas, FK_Armamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", // Query SQL com placeholders
+//     [nomeadicao, vidaadicao, sucoadicao, ataqueadicao, defesaadicao, velocidadeadicao, sorteadicao, aniversarioadicao, habilidadesadicao, comidasadicao, armamentoadicao], // Valores que substituem os "?"
+//     (err, result) => {
+//       if (err) throw err;
+//       res.json({ message: "Personagem adicionado com sucesso!" }); // Retorno de sucesso
+//     }
+//   );
+// });
+app.post("/PersonagensTESTE", (req, res) => {
+   const {nomeAdicaoTeste, nascimentoAdicaoTeste, ataqueAdicaoTeste, defesaAdicaoTeste} = req.body; // Extrai os dados enviados pelo front
   db.query(
-    "INSERT INTO Personagens (ID_personagens, nome, vida, suco, ataque, defesa, velocidade, sorte, aniversario, FK_habilidades, FK_Comidas, FK_Armamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", // Query SQL com placeholders
-    [nomeadicao, vidaadicao, sucoadicao, ataqueadicao, defesaadicao, velocidadeadicao, sorteadicao, aniversarioadicao, habilidadesadicao, comidasadicao, armamentoadicao], // Valores que substituem os "?"
+    "INSERT INTO PersonagensTESTE (nome, nascimento, ataque, defesa) VALUES (?, ?, ?, ?)", // Query SQL com placeholders
+    [nomeAdicaoTeste, nascimentoAdicaoTeste, ataqueAdicaoTeste, defesaAdicaoTeste], // Valores que substituem os "?"
     (err, result) => {
       if (err) throw err;
       res.json({ message: "Personagem adicionado com sucesso!" }); // Retorno de sucesso
     }
   );
-});
+ });
 
 
 // Inicia o servidor na porta 3000

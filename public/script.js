@@ -1,3 +1,4 @@
+
 function carregaPersonagem(){
   let url5 = `http://localhost:3000/PersonagensTESTE`
   let nomeTESTE = document.getElementById("nomeTESTE")
@@ -123,7 +124,7 @@ fetch(url5)
     });
 }
 
-// function criarPersonagem(){
+ function criarPersonagem(submit){
 //   const nomeadicao = document.getElementById("nomeadicao").value
 //   const vidaadicao = document.getElementById("vidaadicao").value
 //   const sucoadicao = document.getElementById("sucoadicao").value
@@ -136,11 +137,20 @@ fetch(url5)
 //   const comidasadicao = document.getElementById("comidasadicao").value
 //   const armamentoadicao = document.getElementById("armamentoadicao").value
 
+
 //    fetch("/Personagens", {
 //     method: "POST",
 //     headers: { "Content-Type": "application/json" },
 //     body: JSON.stringify({nomeadicao, vidaadicao, sucoadicao, ataqueadicao, defesaadicao, velocidadeadicao, sorteadicao, aniversarioadicao, habilidadesadicao, comidasadicao, armamentoadicao }), // manda o objeto js para o banco como json
 //   });
+const nomeAdicaoTeste = document.getElementById("nomeadicaoTESTE").value
+const nascimentoAdicaoTeste = document.getElementById("nascimentoadicaoTESTE").value
+const ataqueAdicaoTeste = document.getElementById("ataqueadicaoTESTE").value
+const defesaAdicaoTeste = document.getElementById("defesaadicaoTESTE").value
 
-// };
-
+fetch("/PersonagensTESTE", {
+     method: "POST",
+     headers: { "Content-Type": "application/json" },
+     body: JSON.stringify({nomeAdicaoTeste, nascimentoAdicaoTeste, ataqueAdicaoTeste, defesaAdicaoTeste}), // manda o objeto js para o banco como json
+   });
+ };
