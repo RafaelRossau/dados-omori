@@ -86,7 +86,7 @@ app.post("/Habilidades", (req, res) => {
 //     [nomeAdicaoTeste, nascimentoAdicaoTeste, ataqueAdicaoTeste, defesaAdicaoTeste], // Valores que substituem os "?"
 //     (err, result) => {
 //       if (err) throw err;
-//       res.json({ message: "Personagem adicionado com sucesso!" }); // Retorno de sucesso
+//       res.json({ message: "Personagem adicionado com sucesso!" }); // Retorno de sucesso mm
 //     }
 //   );
 //  });
