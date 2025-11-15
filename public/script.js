@@ -155,3 +155,15 @@ fetch(url)
 //      body: JSON.stringify({nomeAdicaoTeste, nascimentoAdicaoTeste, ataqueAdicaoTeste, defesaAdicaoTeste}), // manda o objeto js para o banco como json
 //    });
  };
+
+ function criarHabilidade(submit){
+  const nome_habilidade_adicao = document.getElementById("nome_habilidade_adicao").value
+  const descricao_habilidade_adicao = document.getElementById("descricaoadicao").value
+  const fonte_habilidade_adicao = document.getElementById("fonteadicao").value
+
+  fetch("/Habilidades", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({nome_habilidade_adicao, descricao_habilidade_adicao, fonte_habilidade_adicao }), // manda o objeto js para o banco como json
+  });
+ };

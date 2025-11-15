@@ -67,6 +67,18 @@ app.post("/Personagens", (req, res) => {
     }
   );
 });
+
+app.post("/Habilidades", (req, res) => {
+  const {nome_habilidade_adicao, descricao_habilidade_adicao, fonte_habilidade_adicao} = req.body; // Extrai os dados enviados pelo front
+  db.query(
+    "INSERT INTO Habilidades (nome, descricao, fonte) VALUES (?, ?, ?)", // Query SQL com placeholders
+    [nome_habilidade_adicao, descricao_habilidade_adicao, fonte_habilidade_adicao], // Valores que substituem os "?"
+    (err, result) => {
+      if (err) throw err;
+      res.json({ message: "Habilidade adicionada com sucesso!" }); // Retorno de sucesso
+    }
+  );
+});
 // app.post("/PersonagensTESTE", (req, res) => {
 //    const {nomeAdicaoTeste, nascimentoAdicaoTeste, ataqueAdicaoTeste, defesaAdicaoTeste} = req.body; // Extrai os dados enviados pelo front
 //   db.query(
