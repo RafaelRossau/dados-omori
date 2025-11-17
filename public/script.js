@@ -1,4 +1,8 @@
 
+let url = `http://localhost:3000/Personagens`;
+let url2 = `http://localhost:3000/Habilidades`;
+let url3 = `http://localhost:3000/Comidas`;
+let url4 = `http://localhost:3000/Armamento`;
 function carregaPersonagem(){
   let url5 = `http://localhost:3000/PersonagensTESTE`
   let nomeTESTE = document.getElementById("nomeTESTE")
@@ -7,10 +11,6 @@ function carregaPersonagem(){
   let defesaTESTE = document.getElementById("defesaTESTE")
   
   let id = document.getElementById("procurador").value;
-  let url = `http://localhost:3000/Personagens`;
-  let url2 = `http://localhost:3000/Habilidades`;
-  let url3 = `http://localhost:3000/Comidas`;
-  let url4 = `http://localhost:3000/Armamento`;
   let nome_personagem = document.getElementById("nome_personagens");
   let vida = document.getElementById("vida");
   let suco = document.getElementById("suco");
@@ -165,5 +165,39 @@ fetch(url)
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({nome_habilidade_adicao, descricao_habilidade_adicao, fonte_habilidade_adicao }), // manda o objeto js para o banco como json
+  });
+ };
+ function carregaHabilidade(){
+  let id2 = document.getElementById("procuradorhabilidades").value;
+  let urlHabilidades = `http://localhost:3000/Habilidades`;
+  const nome_habilidade = document.getElementById("nome_habilidade")
+  const descricao_habilidade = document.getElementById("descricao")
+  const fonte_habilidade = document.getElementById("fonte")
+
+  fetch(urlHabilidades)
+    .then((response) => {
+      return response.json();
+    })
+
+    .then((Habilidades) => {
+      console.log(Habilidades)
+   nome_habilidade.innerHTML = "Nome: " + Habilidades[id2].nome
+  descricao_habilidade.innerHTML = "Descrição: " + Habilidades[id2].descricao
+  fonte_habilidade.innerHTML = "Fonte: " + Habilidades[id2].fonte
+})
+ };
+ function Deletar(){
+  const deletar_personagem = document.getElementById("deletar_personagem").value;
+  const deletar_habilidade = document.getElementById("deletar_habilidade").value;
+  
+  
+  
+
+  fetch(url)
+ 
+    fetch("/Personagens", {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.delete({nomedelete, vidadelete, sucodelete, ataquedelete, defesadelete, velocidadedelete, sortedelete, aniversariodelete, habilidadesdelete}), 
   });
  };

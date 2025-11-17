@@ -79,6 +79,19 @@ app.post("/Habilidades", (req, res) => {
     }
   );
 });
+//DELETE
+app.delete("/usuarios/:id", (req, res) => {
+  const { id } = req.params;
+  db.query("DELETE FROM Personagens WHERE id = ?", [id], (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: "Erro ao deletar" });
+    }
+    res.json({ message: "Usuário removido com sucesso!" });
+  });
+});
+
+
 // app.post("/PersonagensTESTE", (req, res) => {
 //    const {nomeAdicaoTeste, nascimentoAdicaoTeste, ataqueAdicaoTeste, defesaAdicaoTeste} = req.body; // Extrai os dados enviados pelo front
 //   db.query(

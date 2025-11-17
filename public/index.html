@@ -36,6 +36,20 @@
 
      </fieldset>
      </fieldset>
+     <fieldset id="procuradorHabilidades">
+      <h1>Procurador de habilidades</h1>
+      <div id="botao_input_habilidades">
+        <label>Procurador de habilidades:</label>
+        <input id="procuradorhabilidades">
+        <button onclick="carregaHabilidade()">Procurar</button>
+     </div>
+     <fieldset id="respostas_habilidades">
+      <h1>Dados</h1>
+      <p id="nome_habilidade"></p>
+      <p id="descricao"></p>
+      <p id="fonte"></p>
+     </fieldset>
+     </fieldset>
      <fieldset id="divisao_adicionar_personagem">
         <h1>Adicionar Personagem</h1>
         <label class="nomeadicao">Nome:</label>
@@ -83,6 +97,14 @@
       <button onclick="criarHabilidade()">Criar</button>
      </fieldset>
     </div>
+    <fieldset id="deletar">
+      <h1>Deletar</h1>
+      <label class="deletar_personagem">Personagem:</label>
+      <input type="text" class="nomeadicao" id="deletar_personagem"/>
+      <label class="vidaadicao">Habilidade:</label>
+      <input type="text" class="descricaoadicao" id="deletar_habilidade"/>
+      <button onclick="Deletar()">Deletar</button>
+    </fieldset>
 </body>
 <script src="script.js"></script>
 </html>
