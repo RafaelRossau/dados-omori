@@ -187,17 +187,39 @@ fetch(url)
 })
  };
  function Deletar(){
-  const deletar_personagem = document.getElementById("deletar_personagem").value;
-  const deletar_habilidade = document.getElementById("deletar_habilidade").value;
+  let deletar_personagem = document.getElementById("deletar_personagem").value;
+  const urlPersonagensDELETE = `http://localhost:3000/Personagens/${deletar_personagem}`
   
-  
-  
-
-  fetch(url)
- 
-    fetch("/Personagens", {
+  fetch(urlPersonagensDELETE, {
     method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.delete({nomedelete, vidadelete, sucodelete, ataquedelete, defesadelete, velocidadedelete, sortedelete, aniversariodelete, habilidadesdelete}), 
-  });
- };
+    headers: { "Content-Type": "application/json" }
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      alert(data.message);
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Erro ao deletar personagem");
+    });
+  };
+   
+  function DeletarHabilidades(){
+  let deletar_habilidade = document.getElementById("deletar_habilidade").value;
+  const urlHabilidadesDELETE = `http://localhost:3000/Habilidades/${deletar_habilidade}`
+  
+  fetch(urlHabilidadesDELETE, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" }
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      alert(data.message);
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Erro ao deletar habilidade");
+    });
+  }

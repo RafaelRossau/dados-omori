@@ -80,17 +80,27 @@ app.post("/Habilidades", (req, res) => {
   );
 });
 //DELETE
-app.delete("/usuarios/:id", (req, res) => {
+app.delete("/Personagens/:id", (req, res) => {
   const { id } = req.params;
-  db.query("DELETE FROM Personagens WHERE id = ?", [id], (err, result) => {
+  db.query("DELETE FROM Personagens WHERE ID_personagens = ?", [id], (err, result) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ error: "Erro ao deletar" });
     }
-    res.json({ message: "Usuário removido com sucesso!" });
+    res.json({ message: "Personagem removido com sucesso!" });
   });
 });
 
+app.delete("/Habilidades/:id", (req, res) => {
+  const { id } = req.params;
+  db.query("DELETE FROM Habilidades WHERE ID_habilidades = ?", [id], (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: "Erro ao deletar" });
+    }
+    res.json({ message: "habilidade removida com sucesso!" });
+  });
+});
 
 // app.post("/PersonagensTESTE", (req, res) => {
 //    const {nomeAdicaoTeste, nascimentoAdicaoTeste, ataqueAdicaoTeste, defesaAdicaoTeste} = req.body; // Extrai os dados enviados pelo front
